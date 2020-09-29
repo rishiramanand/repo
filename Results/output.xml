@@ -1,0 +1,2130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20200925 22:25:40.582" rpa="false">
+<suite id="s1" name="Gmail" source="C:\development\gmail\tests\gmail.robot">
+<test id="s1-t1" name="Login to Gmail and send email and validate at the recievers end">
+<kw name="Close All Excel Documents" library="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" starttime="20200925 22:25:41.164" endtime="20200925 22:25:41.164"></status>
+</kw>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<doc>Opens xlsx document file.</doc>
+<arguments>
+<arg>${path}</arg>
+<arg>id2</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:25:41.164" endtime="20200925 22:25:41.172"></status>
+</kw>
+<kw name="Get Sheet" library="ExcelLibrary">
+<doc>Returns a page from the current document.</doc>
+<arguments>
+<arg>${sheet_name}</arg>
+</arguments>
+<assign>
+<var>${rows}</var>
+</assign>
+<msg timestamp="20200925 22:25:41.175" level="INFO">${rows} = &lt;Worksheet "Sheet1"&gt;</msg>
+<status status="PASS" starttime="20200925 22:25:41.172" endtime="20200925 22:25:41.175"></status>
+</kw>
+<kw name="${row} IN [ @{rows.values} ]" type="for">
+<msg timestamp="20200925 22:25:41.175" level="WARN">Error in file 'C:\development\gmail\tests\gmail.robot' in FOR loop starting on line 27: For loop header ':For' is deprecated. Use 'FOR' instead.</msg>
+<kw name="${row} = ('rishithramanand@gmail.com', 'Shams_143', 'Hello edge', 'rishithramanand@gmail.com', 'Shams_143', 'edge', 'https://mail.google.com/')" type="foritem">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${username}</arg>
+<arg>${row}[0]</arg>
+</arguments>
+<msg timestamp="20200925 22:25:41.175" level="INFO">${username} = rishithramanand@gmail.com</msg>
+<status status="PASS" starttime="20200925 22:25:41.175" endtime="20200925 22:25:41.175"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${recipient}</arg>
+<arg>${row}[0]</arg>
+</arguments>
+<msg timestamp="20200925 22:25:41.179" level="INFO">${recipient} = rishithramanand@gmail.com</msg>
+<status status="PASS" starttime="20200925 22:25:41.175" endtime="20200925 22:25:41.179"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${password_input}</arg>
+<arg>${row}[1]</arg>
+</arguments>
+<msg timestamp="20200925 22:25:41.179" level="INFO">${password_input} = Shams_143</msg>
+<status status="PASS" starttime="20200925 22:25:41.179" endtime="20200925 22:25:41.179"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${mail_body_text}</arg>
+<arg>${row}[2]</arg>
+</arguments>
+<msg timestamp="20200925 22:25:41.179" level="INFO">${mail_body_text} = Hello edge</msg>
+<status status="PASS" starttime="20200925 22:25:41.179" endtime="20200925 22:25:41.179"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${browser}</arg>
+<arg>${row}[5]</arg>
+</arguments>
+<msg timestamp="20200925 22:25:41.179" level="INFO">${browser} = edge</msg>
+<status status="PASS" starttime="20200925 22:25:41.179" endtime="20200925 22:25:41.179"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${row}[6]</arg>
+</arguments>
+<msg timestamp="20200925 22:25:41.179" level="INFO">${url} = https://mail.google.com/</msg>
+<status status="PASS" starttime="20200925 22:25:41.179" endtime="20200925 22:25:41.179"></status>
+</kw>
+<kw name="Begin Web Test" library="Common_gmail">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:41.179" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20200925 22:25:41.179" endtime="20200925 22:25:45.081"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200925 22:25:45.081" endtime="20200925 22:25:47.250"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:41.179" endtime="20200925 22:25:47.250"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>random.sample(range(1, 99999999),1)</arg>
+<arg>random</arg>
+</arguments>
+<assign>
+<var>${randomn}</var>
+</assign>
+<msg timestamp="20200925 22:25:47.253" level="INFO">${randomn} = [32465489]</msg>
+<status status="PASS" starttime="20200925 22:25:47.252" endtime="20200925 22:25:47.253"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>Subject</arg>
+<arg>${randomn}</arg>
+</arguments>
+<assign>
+<var>${subject_text}</var>
+</assign>
+<msg timestamp="20200925 22:25:47.254" level="INFO">${subject_text} = Subject [32465489]</msg>
+<status status="PASS" starttime="20200925 22:25:47.253" endtime="20200925 22:25:47.254"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${subject_text}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:47.255" level="INFO">Subject [32465489]</msg>
+<status status="PASS" starttime="20200925 22:25:47.255" endtime="20200925 22:25:47.256"></status>
+</kw>
+<kw name="Login" library="gmail_resource">
+<arguments>
+<arg>${username}</arg>
+<arg>${password_input}</arg>
+</arguments>
+<kw name="Load" library="LoginPage">
+<doc>The URL is fetched from the test file, method is to navigate to the url specified</doc>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:47.256" level="INFO">Opening url 'https://mail.google.com/'</msg>
+<status status="PASS" starttime="20200925 22:25:47.256" endtime="20200925 22:25:48.796"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:25:48.796" endtime="20200925 22:25:49.139"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:47.256" endtime="20200925 22:25:49.139"></status>
+</kw>
+<kw name="Login_Process" library="LoginPage">
+<doc>This method is for the login process</doc>
+<arguments>
+<arg>${arg1}</arg>
+<arg>${arg2}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+<arg>${user}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:49.143" level="INFO">Typing text 'rishithramanand@gmail.com' into text field 'identifierId'.</msg>
+<status status="PASS" starttime="20200925 22:25:49.139" endtime="20200925 22:25:49.445"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:49.448" level="INFO">Clicking element 'identifierNext'.</msg>
+<status status="PASS" starttime="20200925 22:25:49.448" endtime="20200925 22:25:49.688"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:25:49.689" endtime="20200925 22:25:50.580"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:25:50.580" endtime="20200925 22:25:50.800"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password}</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:50.800" level="INFO">Typing text 'Shams_143' into text field 'xpath = //*[@id="password"]/div[1]/div/div[1]/input'.</msg>
+<status status="PASS" starttime="20200925 22:25:50.800" endtime="20200925 22:25:50.956"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${password_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:50.960" level="INFO">Clicking element 'passwordNext'.</msg>
+<status status="PASS" starttime="20200925 22:25:50.960" endtime="20200925 22:25:51.089"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${hangouts_section}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:25:51.089" endtime="20200925 22:25:58.120"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${compose}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:25:58.120" endtime="20200925 22:25:58.219"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:49.139" endtime="20200925 22:25:58.219"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:47.256" endtime="20200925 22:25:58.219"></status>
+</kw>
+<kw name="Compose Email New and Send" library="gmail_resource">
+<arguments>
+<arg>${subject_text}</arg>
+</arguments>
+<kw name="Compose Click" library="Email Operations">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${compose}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:58.219" level="INFO">Clicking element 'xpath = //*[contains(text(), "Compose")]'.</msg>
+<status status="PASS" starttime="20200925 22:25:58.219" endtime="20200925 22:25:58.707"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:58.219" endtime="20200925 22:25:58.709"></status>
+</kw>
+<kw name="Compose Email Body" library="Email Operations">
+<arguments>
+<arg>${arg}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${to_field}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:25:58.709" endtime="20200925 22:25:58.869"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${to_field}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:25:58.869" endtime="20200925 22:25:58.911"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${to_field}</arg>
+<arg>${recipient}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:58.911" level="INFO">Typing text 'rishithramanand@gmail.com' into text field 'name:to'.</msg>
+<status status="PASS" starttime="20200925 22:25:58.911" endtime="20200925 22:25:59.127"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${subject_field}</arg>
+<arg>${sub}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:59.127" level="INFO">Typing text 'Subject [32465489]' into text field 'name:subjectbox'.</msg>
+<status status="PASS" starttime="20200925 22:25:59.127" endtime="20200925 22:25:59.369"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${mail_body}</arg>
+<arg>${mail_body_text}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:59.369" level="INFO">Typing text 'Hello edge' into text field 'xpath = //div[@aria-label='Message Body']'.</msg>
+<status status="PASS" starttime="20200925 22:25:59.369" endtime="20200925 22:25:59.637"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:58.709" endtime="20200925 22:25:59.637"></status>
+</kw>
+<kw name="Send Mail" library="Email Operations">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${send_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:25:59.637" endtime="20200925 22:25:59.709"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${send_button}</arg>
+</arguments>
+<msg timestamp="20200925 22:25:59.709" level="INFO">Clicking element 'xpath = //div[@aria-label='Send ‪(Ctrl-Enter)‬']'.</msg>
+<status status="PASS" starttime="20200925 22:25:59.709" endtime="20200925 22:25:59.928"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${send_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:25:59.928" endtime="20200925 22:26:00.057"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Success!!</arg>
+</arguments>
+<msg timestamp="20200925 22:26:00.061" level="INFO">Success!!</msg>
+<status status="PASS" starttime="20200925 22:26:00.061" endtime="20200925 22:26:00.061"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:59.637" endtime="20200925 22:26:00.061"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:58.219" endtime="20200925 22:26:00.061"></status>
+</kw>
+<kw name="Log Out From Account" library="gmail_resource">
+<kw name="Sign Out Account" library="Email Operations">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${account_image}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:00.065" endtime="20200925 22:26:00.211"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${account_image}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:00.215" level="INFO">Clicking element 'xpath = //*[@id="gb"]/div[2]/div[3]/div[1]/div[2]/div/a/img'.</msg>
+<status status="PASS" starttime="20200925 22:26:00.215" endtime="20200925 22:26:00.385"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200925 22:26:02.395" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200925 22:26:00.385" endtime="20200925 22:26:02.395"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${sign_out_link}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:02.395" endtime="20200925 22:26:02.445"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${sign_out_link}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:02.445" level="INFO">Clicking element 'xpath = //a[contains(text(), "Sign out")]'.</msg>
+<status status="PASS" starttime="20200925 22:26:02.445" endtime="20200925 22:26:03.035"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:00.061" endtime="20200925 22:26:03.035"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:00.061" endtime="20200925 22:26:03.035"></status>
+</kw>
+<kw name="End Web Test" library="Common_gmail">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200925 22:26:03.035" endtime="20200925 22:26:05.296"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:03.035" endtime="20200925 22:26:05.296"></status>
+</kw>
+<kw name="Begin Web Test" library="Common_gmail">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:05.296" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20200925 22:26:05.296" endtime="20200925 22:26:08.554"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200925 22:26:08.554" endtime="20200925 22:26:10.745"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:05.296" endtime="20200925 22:26:10.745"></status>
+</kw>
+<kw name="Login" library="gmail_resource">
+<arguments>
+<arg>${username}</arg>
+<arg>${password_input}</arg>
+</arguments>
+<kw name="Load" library="LoginPage">
+<doc>The URL is fetched from the test file, method is to navigate to the url specified</doc>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:10.749" level="INFO">Opening url 'https://mail.google.com/'</msg>
+<status status="PASS" starttime="20200925 22:26:10.749" endtime="20200925 22:26:12.268"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:12.268" endtime="20200925 22:26:12.363"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:10.745" endtime="20200925 22:26:12.364"></status>
+</kw>
+<kw name="Login_Process" library="LoginPage">
+<doc>This method is for the login process</doc>
+<arguments>
+<arg>${arg1}</arg>
+<arg>${arg2}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+<arg>${user}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:12.364" level="INFO">Typing text 'rishithramanand@gmail.com' into text field 'identifierId'.</msg>
+<status status="PASS" starttime="20200925 22:26:12.364" endtime="20200925 22:26:12.563"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:12.563" level="INFO">Clicking element 'identifierNext'.</msg>
+<status status="PASS" starttime="20200925 22:26:12.563" endtime="20200925 22:26:12.709"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:12.710" endtime="20200925 22:26:13.503"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:13.503" endtime="20200925 22:26:13.544"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password}</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:13.544" level="INFO">Typing text 'Shams_143' into text field 'xpath = //*[@id="password"]/div[1]/div/div[1]/input'.</msg>
+<status status="PASS" starttime="20200925 22:26:13.544" endtime="20200925 22:26:13.849"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${password_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:13.849" level="INFO">Clicking element 'passwordNext'.</msg>
+<status status="PASS" starttime="20200925 22:26:13.849" endtime="20200925 22:26:13.975"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${hangouts_section}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:13.975" endtime="20200925 22:26:19.970"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${compose}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:19.970" endtime="20200925 22:26:20.065"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:12.364" endtime="20200925 22:26:20.065"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:10.745" endtime="20200925 22:26:20.065"></status>
+</kw>
+<kw name="Search Mail" library="gmail_resource">
+<arguments>
+<arg>${subject_text}</arg>
+</arguments>
+<kw name="Search Email" library="Email Operations">
+<arguments>
+<arg>${subject}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:20.065" endtime="20200925 22:26:20.225"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+<arg>${mail_subject}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:20.225" level="INFO">Typing text 'Subject [32465489]' into text field 'xpath = //input[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:26:20.225" endtime="20200925 22:26:20.457"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:20.457" endtime="20200925 22:26:20.505"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:20.509" level="INFO">Clicking button 'xpath = //button[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:26:20.509" endtime="20200925 22:26:20.653"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:20.065" endtime="20200925 22:26:20.654"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:20.065" endtime="20200925 22:26:20.654"></status>
+</kw>
+<kw name="Click On Searched Email" library="gmail_resource">
+<arguments>
+<arg>${mail_body_text}</arg>
+</arguments>
+<kw name="Searched Email Click" library="Email Operations">
+<arguments>
+<arg>${body}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_mail_result}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:20.654" endtime="20200925 22:26:20.972"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${search_mail_result}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:20.976" level="INFO">Clicking element 'xpath = //div[@role="main"]/div/div[2]/div/table'.</msg>
+<status status="PASS" starttime="20200925 22:26:20.972" endtime="20200925 22:26:21.135"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200925 22:26:23.138" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200925 22:26:21.135" endtime="20200925 22:26:23.138"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${mail_body_searched}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200925 22:26:23.263" level="INFO">${response} = Rishith Ramanand &lt;rishithramanand@gmail.com&gt;
+22:25 (0 minutes ago)
+to me
+Hello edge
+Reply
+Forward</msg>
+<status status="PASS" starttime="20200925 22:26:23.138" endtime="20200925 22:26:23.263"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:23.267" level="INFO">Rishith Ramanand &lt;rishithramanand@gmail.com&gt;
+22:25 (0 minutes ago)
+to me
+Hello edge
+Reply
+Forward</msg>
+<status status="PASS" starttime="20200925 22:26:23.263" endtime="20200925 22:26:23.267"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>${mail_body_searched}</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:23.387" level="INFO">Element 'xpath = //div[@role="listitem"]' contains text 'Hello edge'.</msg>
+<status status="PASS" starttime="20200925 22:26:23.267" endtime="20200925 22:26:23.388"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:20.654" endtime="20200925 22:26:23.388"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:20.654" endtime="20200925 22:26:23.388"></status>
+</kw>
+<kw name="Search Mail" library="gmail_resource">
+<arguments>
+<arg>Subject</arg>
+</arguments>
+<kw name="Search Email" library="Email Operations">
+<arguments>
+<arg>${subject}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:23.389" endtime="20200925 22:26:23.413"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+<arg>${mail_subject}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:23.413" level="INFO">Typing text 'Subject' into text field 'xpath = //input[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:26:23.413" endtime="20200925 22:26:23.540"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:23.540" endtime="20200925 22:26:23.574"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:23.574" level="INFO">Clicking button 'xpath = //button[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:26:23.574" endtime="20200925 22:26:23.700"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:23.389" endtime="20200925 22:26:23.700"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:23.389" endtime="20200925 22:26:23.700"></status>
+</kw>
+<kw name="Delete Mail" library="gmail_resource">
+<kw name="Select All and Delete" library="Email Operations">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200925 22:26:25.706" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200925 22:26:23.704" endtime="20200925 22:26:25.706"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${select_all}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:25.706" endtime="20200925 22:26:25.746"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${select_all}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:25.750" level="INFO">Clicking element 'xpath = /html/body/div[7]/div[3]/div/div[2]/div[1]/div[2]/div/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div/div[1]/div/div[1]/span'.</msg>
+<status status="PASS" starttime="20200925 22:26:25.746" endtime="20200925 22:26:25.834"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${delete_mails}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:25.838" endtime="20200925 22:26:25.886"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${delete_mails}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:25.886" level="INFO">Clicking element 'xpath = //div[@aria-label='Delete']'.</msg>
+<status status="PASS" starttime="20200925 22:26:25.886" endtime="20200925 22:26:25.984"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${deleted_confirm_text}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:25.988" endtime="20200925 22:26:26.310"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:23.704" endtime="20200925 22:26:26.310"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:23.700" endtime="20200925 22:26:26.310"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20200925 22:26:31.315" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20200925 22:26:26.310" endtime="20200925 22:26:31.315"></status>
+</kw>
+<kw name="End Web Test" library="Common_gmail">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200925 22:26:31.315" endtime="20200925 22:26:33.589"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:31.315" endtime="20200925 22:26:33.589"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:41.175" endtime="20200925 22:26:33.589"></status>
+</kw>
+<kw name="${row} = ('rishithramanand@gmail.com', 'Shams_143', 'Hello chrome', 'rishithramanand@gmail.com', 'Shams_143', 'chrome', 'https://mail.google.com/')" type="foritem">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${username}</arg>
+<arg>${row}[0]</arg>
+</arguments>
+<msg timestamp="20200925 22:26:33.589" level="INFO">${username} = rishithramanand@gmail.com</msg>
+<status status="PASS" starttime="20200925 22:26:33.589" endtime="20200925 22:26:33.589"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${recipient}</arg>
+<arg>${row}[0]</arg>
+</arguments>
+<msg timestamp="20200925 22:26:33.593" level="INFO">${recipient} = rishithramanand@gmail.com</msg>
+<status status="PASS" starttime="20200925 22:26:33.589" endtime="20200925 22:26:33.593"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${password_input}</arg>
+<arg>${row}[1]</arg>
+</arguments>
+<msg timestamp="20200925 22:26:33.593" level="INFO">${password_input} = Shams_143</msg>
+<status status="PASS" starttime="20200925 22:26:33.593" endtime="20200925 22:26:33.593"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${mail_body_text}</arg>
+<arg>${row}[2]</arg>
+</arguments>
+<msg timestamp="20200925 22:26:33.593" level="INFO">${mail_body_text} = Hello chrome</msg>
+<status status="PASS" starttime="20200925 22:26:33.593" endtime="20200925 22:26:33.593"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${browser}</arg>
+<arg>${row}[5]</arg>
+</arguments>
+<msg timestamp="20200925 22:26:33.593" level="INFO">${browser} = chrome</msg>
+<status status="PASS" starttime="20200925 22:26:33.593" endtime="20200925 22:26:33.593"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${row}[6]</arg>
+</arguments>
+<msg timestamp="20200925 22:26:33.593" level="INFO">${url} = https://mail.google.com/</msg>
+<status status="PASS" starttime="20200925 22:26:33.593" endtime="20200925 22:26:33.593"></status>
+</kw>
+<kw name="Begin Web Test" library="Common_gmail">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:33.598" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20200925 22:26:33.597" endtime="20200925 22:26:36.884"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200925 22:26:36.884" endtime="20200925 22:26:39.059"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:33.593" endtime="20200925 22:26:39.059"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>random.sample(range(1, 99999999),1)</arg>
+<arg>random</arg>
+</arguments>
+<assign>
+<var>${randomn}</var>
+</assign>
+<msg timestamp="20200925 22:26:39.059" level="INFO">${randomn} = [25360564]</msg>
+<status status="PASS" starttime="20200925 22:26:39.059" endtime="20200925 22:26:39.059"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>Subject</arg>
+<arg>${randomn}</arg>
+</arguments>
+<assign>
+<var>${subject_text}</var>
+</assign>
+<msg timestamp="20200925 22:26:39.063" level="INFO">${subject_text} = Subject [25360564]</msg>
+<status status="PASS" starttime="20200925 22:26:39.059" endtime="20200925 22:26:39.063"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${subject_text}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:39.063" level="INFO">Subject [25360564]</msg>
+<status status="PASS" starttime="20200925 22:26:39.063" endtime="20200925 22:26:39.063"></status>
+</kw>
+<kw name="Login" library="gmail_resource">
+<arguments>
+<arg>${username}</arg>
+<arg>${password_input}</arg>
+</arguments>
+<kw name="Load" library="LoginPage">
+<doc>The URL is fetched from the test file, method is to navigate to the url specified</doc>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:39.063" level="INFO">Opening url 'https://mail.google.com/'</msg>
+<status status="PASS" starttime="20200925 22:26:39.063" endtime="20200925 22:26:40.246"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:40.246" endtime="20200925 22:26:40.303"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:39.063" endtime="20200925 22:26:40.303"></status>
+</kw>
+<kw name="Login_Process" library="LoginPage">
+<doc>This method is for the login process</doc>
+<arguments>
+<arg>${arg1}</arg>
+<arg>${arg2}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+<arg>${user}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:40.305" level="INFO">Typing text 'rishithramanand@gmail.com' into text field 'identifierId'.</msg>
+<status status="PASS" starttime="20200925 22:26:40.305" endtime="20200925 22:26:40.538"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:40.538" level="INFO">Clicking element 'identifierNext'.</msg>
+<status status="PASS" starttime="20200925 22:26:40.538" endtime="20200925 22:26:40.650"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:40.650" endtime="20200925 22:26:41.410"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:41.410" endtime="20200925 22:26:41.458"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password}</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:41.458" level="INFO">Typing text 'Shams_143' into text field 'xpath = //*[@id="password"]/div[1]/div/div[1]/input'.</msg>
+<status status="PASS" starttime="20200925 22:26:41.458" endtime="20200925 22:26:41.734"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${password_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:41.738" level="INFO">Clicking element 'passwordNext'.</msg>
+<status status="PASS" starttime="20200925 22:26:41.734" endtime="20200925 22:26:41.881"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${hangouts_section}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:41.882" endtime="20200925 22:26:45.638"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${compose}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:45.638" endtime="20200925 22:26:46.194"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:40.303" endtime="20200925 22:26:46.194"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:39.063" endtime="20200925 22:26:46.194"></status>
+</kw>
+<kw name="Compose Email New and Send" library="gmail_resource">
+<arguments>
+<arg>${subject_text}</arg>
+</arguments>
+<kw name="Compose Click" library="Email Operations">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${compose}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:46.198" level="INFO">Clicking element 'xpath = //*[contains(text(), "Compose")]'.</msg>
+<status status="PASS" starttime="20200925 22:26:46.198" endtime="20200925 22:26:46.835"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:46.198" endtime="20200925 22:26:46.835"></status>
+</kw>
+<kw name="Compose Email Body" library="Email Operations">
+<arguments>
+<arg>${arg}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${to_field}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:46.835" endtime="20200925 22:26:48.077"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${to_field}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:48.077" endtime="20200925 22:26:48.161"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${to_field}</arg>
+<arg>${recipient}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:48.161" level="INFO">Typing text 'rishithramanand@gmail.com' into text field 'name:to'.</msg>
+<status status="PASS" starttime="20200925 22:26:48.161" endtime="20200925 22:26:48.372"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${subject_field}</arg>
+<arg>${sub}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:48.372" level="INFO">Typing text 'Subject [25360564]' into text field 'name:subjectbox'.</msg>
+<status status="PASS" starttime="20200925 22:26:48.372" endtime="20200925 22:26:48.718"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${mail_body}</arg>
+<arg>${mail_body_text}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:48.718" level="INFO">Typing text 'Hello chrome' into text field 'xpath = //div[@aria-label='Message Body']'.</msg>
+<status status="PASS" starttime="20200925 22:26:48.718" endtime="20200925 22:26:49.383"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:46.835" endtime="20200925 22:26:49.384"></status>
+</kw>
+<kw name="Send Mail" library="Email Operations">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${send_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:49.385" endtime="20200925 22:26:49.527"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${send_button}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:49.527" level="INFO">Clicking element 'xpath = //div[@aria-label='Send ‪(Ctrl-Enter)‬']'.</msg>
+<status status="PASS" starttime="20200925 22:26:49.527" endtime="20200925 22:26:49.797"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${send_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:49.797" endtime="20200925 22:26:49.971"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Success!!</arg>
+</arguments>
+<msg timestamp="20200925 22:26:49.971" level="INFO">Success!!</msg>
+<status status="PASS" starttime="20200925 22:26:49.971" endtime="20200925 22:26:49.971"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:49.385" endtime="20200925 22:26:49.976"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:46.198" endtime="20200925 22:26:49.976"></status>
+</kw>
+<kw name="Log Out From Account" library="gmail_resource">
+<kw name="Sign Out Account" library="Email Operations">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${account_image}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:49.976" endtime="20200925 22:26:50.272"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${account_image}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:50.272" level="INFO">Clicking element 'xpath = //*[@id="gb"]/div[2]/div[3]/div[1]/div[2]/div/a/img'.</msg>
+<status status="PASS" starttime="20200925 22:26:50.272" endtime="20200925 22:26:50.425"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200925 22:26:52.428" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200925 22:26:50.425" endtime="20200925 22:26:52.428"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${sign_out_link}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:26:52.428" endtime="20200925 22:26:52.468"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${sign_out_link}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:52.468" level="INFO">Clicking element 'xpath = //a[contains(text(), "Sign out")]'.</msg>
+<status status="PASS" starttime="20200925 22:26:52.468" endtime="20200925 22:26:52.956"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:49.976" endtime="20200925 22:26:52.956"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:49.976" endtime="20200925 22:26:52.956"></status>
+</kw>
+<kw name="End Web Test" library="Common_gmail">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200925 22:26:52.956" endtime="20200925 22:26:55.211"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:52.956" endtime="20200925 22:26:55.211"></status>
+</kw>
+<kw name="Begin Web Test" library="Common_gmail">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20200925 22:26:55.211" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20200925 22:26:55.211" endtime="20200925 22:26:58.493"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200925 22:26:58.493" endtime="20200925 22:27:00.643"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:55.211" endtime="20200925 22:27:00.643"></status>
+</kw>
+<kw name="Login" library="gmail_resource">
+<arguments>
+<arg>${username}</arg>
+<arg>${password_input}</arg>
+</arguments>
+<kw name="Load" library="LoginPage">
+<doc>The URL is fetched from the test file, method is to navigate to the url specified</doc>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:00.647" level="INFO">Opening url 'https://mail.google.com/'</msg>
+<status status="PASS" starttime="20200925 22:27:00.647" endtime="20200925 22:27:01.916"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:01.916" endtime="20200925 22:27:01.972"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:00.647" endtime="20200925 22:27:01.972"></status>
+</kw>
+<kw name="Login_Process" library="LoginPage">
+<doc>This method is for the login process</doc>
+<arguments>
+<arg>${arg1}</arg>
+<arg>${arg2}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+<arg>${user}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:01.976" level="INFO">Typing text 'rishithramanand@gmail.com' into text field 'identifierId'.</msg>
+<status status="PASS" starttime="20200925 22:27:01.976" endtime="20200925 22:27:02.234"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:02.234" level="INFO">Clicking element 'identifierNext'.</msg>
+<status status="PASS" starttime="20200925 22:27:02.234" endtime="20200925 22:27:02.377"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:02.377" endtime="20200925 22:27:03.162"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:03.164" endtime="20200925 22:27:03.375"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password}</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:03.375" level="INFO">Typing text 'Shams_143' into text field 'xpath = //*[@id="password"]/div[1]/div/div[1]/input'.</msg>
+<status status="PASS" starttime="20200925 22:27:03.375" endtime="20200925 22:27:03.516"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${password_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:03.516" level="INFO">Clicking element 'passwordNext'.</msg>
+<status status="PASS" starttime="20200925 22:27:03.516" endtime="20200925 22:27:03.604"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${hangouts_section}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:03.604" endtime="20200925 22:27:07.018"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${compose}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:07.018" endtime="20200925 22:27:07.268"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:01.972" endtime="20200925 22:27:07.272"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:00.643" endtime="20200925 22:27:07.272"></status>
+</kw>
+<kw name="Search Mail" library="gmail_resource">
+<arguments>
+<arg>${subject_text}</arg>
+</arguments>
+<kw name="Search Email" library="Email Operations">
+<arguments>
+<arg>${subject}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:07.276" endtime="20200925 22:27:08.067"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+<arg>${mail_subject}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:08.067" level="INFO">Typing text 'Subject [25360564]' into text field 'xpath = //input[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:27:08.067" endtime="20200925 22:27:09.073"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:09.073" endtime="20200925 22:27:09.327"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:09.327" level="INFO">Clicking button 'xpath = //button[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:27:09.327" endtime="20200925 22:27:09.648"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:07.275" endtime="20200925 22:27:09.648"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:07.272" endtime="20200925 22:27:09.648"></status>
+</kw>
+<kw name="Click On Searched Email" library="gmail_resource">
+<arguments>
+<arg>${mail_body_text}</arg>
+</arguments>
+<kw name="Searched Email Click" library="Email Operations">
+<arguments>
+<arg>${body}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_mail_result}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:09.648" endtime="20200925 22:27:10.273"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${search_mail_result}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:10.273" level="INFO">Clicking element 'xpath = //div[@role="main"]/div/div[2]/div/table'.</msg>
+<status status="PASS" starttime="20200925 22:27:10.273" endtime="20200925 22:27:10.648"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200925 22:27:12.652" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200925 22:27:10.648" endtime="20200925 22:27:12.652"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${mail_body_searched}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200925 22:27:12.773" level="INFO">${response} = Rishith Ramanand &lt;rishithramanand@gmail.com&gt;
+22:26 (0 minutes ago)
+to me
+Hello chrome
+Reply
+Forward</msg>
+<status status="PASS" starttime="20200925 22:27:12.652" endtime="20200925 22:27:12.773"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:12.773" level="INFO">Rishith Ramanand &lt;rishithramanand@gmail.com&gt;
+22:26 (0 minutes ago)
+to me
+Hello chrome
+Reply
+Forward</msg>
+<status status="PASS" starttime="20200925 22:27:12.773" endtime="20200925 22:27:12.773"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>${mail_body_searched}</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:12.881" level="INFO">Element 'xpath = //div[@role="listitem"]' contains text 'Hello chrome'.</msg>
+<status status="PASS" starttime="20200925 22:27:12.773" endtime="20200925 22:27:12.881"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:09.648" endtime="20200925 22:27:12.881"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:09.648" endtime="20200925 22:27:12.881"></status>
+</kw>
+<kw name="Search Mail" library="gmail_resource">
+<arguments>
+<arg>Subject</arg>
+</arguments>
+<kw name="Search Email" library="Email Operations">
+<arguments>
+<arg>${subject}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:12.881" endtime="20200925 22:27:12.907"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+<arg>${mail_subject}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:12.907" level="INFO">Typing text 'Subject' into text field 'xpath = //input[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:27:12.907" endtime="20200925 22:27:13.054"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:13.057" endtime="20200925 22:27:13.090"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:13.090" level="INFO">Clicking button 'xpath = //button[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:27:13.090" endtime="20200925 22:27:13.233"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:12.881" endtime="20200925 22:27:13.233"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:12.881" endtime="20200925 22:27:13.233"></status>
+</kw>
+<kw name="Delete Mail" library="gmail_resource">
+<kw name="Select All and Delete" library="Email Operations">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200925 22:27:15.249" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200925 22:27:13.237" endtime="20200925 22:27:15.249"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${select_all}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:15.249" endtime="20200925 22:27:15.283"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${select_all}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:15.283" level="INFO">Clicking element 'xpath = /html/body/div[7]/div[3]/div/div[2]/div[1]/div[2]/div/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div/div[1]/div/div[1]/span'.</msg>
+<status status="PASS" starttime="20200925 22:27:15.283" endtime="20200925 22:27:15.365"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${delete_mails}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:15.365" endtime="20200925 22:27:15.405"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${delete_mails}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:15.405" level="INFO">Clicking element 'xpath = //div[@aria-label='Delete']'.</msg>
+<status status="PASS" starttime="20200925 22:27:15.405" endtime="20200925 22:27:15.500"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${deleted_confirm_text}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:15.500" endtime="20200925 22:27:15.832"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:13.233" endtime="20200925 22:27:15.832"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:13.233" endtime="20200925 22:27:15.832"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20200925 22:27:20.838" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20200925 22:27:15.832" endtime="20200925 22:27:20.838"></status>
+</kw>
+<kw name="End Web Test" library="Common_gmail">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200925 22:27:20.838" endtime="20200925 22:27:23.104"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:20.838" endtime="20200925 22:27:23.104"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:26:33.589" endtime="20200925 22:27:23.104"></status>
+</kw>
+<kw name="${row} = ('rishithramanand@gmail.com', 'Shams_143', 'Hello firefox', 'rishithramanand@gmail.com', 'Shams_143', 'firefox', 'https://mail.google.com/')" type="foritem">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${username}</arg>
+<arg>${row}[0]</arg>
+</arguments>
+<msg timestamp="20200925 22:27:23.104" level="INFO">${username} = rishithramanand@gmail.com</msg>
+<status status="PASS" starttime="20200925 22:27:23.104" endtime="20200925 22:27:23.104"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${recipient}</arg>
+<arg>${row}[0]</arg>
+</arguments>
+<msg timestamp="20200925 22:27:23.104" level="INFO">${recipient} = rishithramanand@gmail.com</msg>
+<status status="PASS" starttime="20200925 22:27:23.104" endtime="20200925 22:27:23.104"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${password_input}</arg>
+<arg>${row}[1]</arg>
+</arguments>
+<msg timestamp="20200925 22:27:23.104" level="INFO">${password_input} = Shams_143</msg>
+<status status="PASS" starttime="20200925 22:27:23.104" endtime="20200925 22:27:23.104"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${mail_body_text}</arg>
+<arg>${row}[2]</arg>
+</arguments>
+<msg timestamp="20200925 22:27:23.109" level="INFO">${mail_body_text} = Hello firefox</msg>
+<status status="PASS" starttime="20200925 22:27:23.104" endtime="20200925 22:27:23.109"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${browser}</arg>
+<arg>${row}[5]</arg>
+</arguments>
+<msg timestamp="20200925 22:27:23.109" level="INFO">${browser} = firefox</msg>
+<status status="PASS" starttime="20200925 22:27:23.109" endtime="20200925 22:27:23.109"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${row}[6]</arg>
+</arguments>
+<msg timestamp="20200925 22:27:23.109" level="INFO">${url} = https://mail.google.com/</msg>
+<status status="PASS" starttime="20200925 22:27:23.109" endtime="20200925 22:27:23.109"></status>
+</kw>
+<kw name="Begin Web Test" library="Common_gmail">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:23.109" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200925 22:27:23.117" level="INFO">Firefox driver log is always forced to to: C:\development\gmail\results\geckodriver-9.log</msg>
+<status status="PASS" starttime="20200925 22:27:23.109" endtime="20200925 22:27:30.025"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200925 22:27:30.025" endtime="20200925 22:27:30.294"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:23.109" endtime="20200925 22:27:30.294"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>random.sample(range(1, 99999999),1)</arg>
+<arg>random</arg>
+</arguments>
+<assign>
+<var>${randomn}</var>
+</assign>
+<msg timestamp="20200925 22:27:30.298" level="INFO">${randomn} = [43366799]</msg>
+<status status="PASS" starttime="20200925 22:27:30.294" endtime="20200925 22:27:30.298"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>Subject</arg>
+<arg>${randomn}</arg>
+</arguments>
+<assign>
+<var>${subject_text}</var>
+</assign>
+<msg timestamp="20200925 22:27:30.300" level="INFO">${subject_text} = Subject [43366799]</msg>
+<status status="PASS" starttime="20200925 22:27:30.298" endtime="20200925 22:27:30.300"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${subject_text}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:30.301" level="INFO">Subject [43366799]</msg>
+<status status="PASS" starttime="20200925 22:27:30.300" endtime="20200925 22:27:30.301"></status>
+</kw>
+<kw name="Login" library="gmail_resource">
+<arguments>
+<arg>${username}</arg>
+<arg>${password_input}</arg>
+</arguments>
+<kw name="Load" library="LoginPage">
+<doc>The URL is fetched from the test file, method is to navigate to the url specified</doc>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:30.304" level="INFO">Opening url 'https://mail.google.com/'</msg>
+<status status="PASS" starttime="20200925 22:27:30.303" endtime="20200925 22:27:31.891"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:31.892" endtime="20200925 22:27:31.960"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:30.302" endtime="20200925 22:27:31.961"></status>
+</kw>
+<kw name="Login_Process" library="LoginPage">
+<doc>This method is for the login process</doc>
+<arguments>
+<arg>${arg1}</arg>
+<arg>${arg2}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+<arg>${user}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:31.963" level="INFO">Typing text 'rishithramanand@gmail.com' into text field 'identifierId'.</msg>
+<status status="PASS" starttime="20200925 22:27:31.963" endtime="20200925 22:27:32.185"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:32.185" level="INFO">Clicking element 'identifierNext'.</msg>
+<status status="PASS" starttime="20200925 22:27:32.185" endtime="20200925 22:27:32.449"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:32.449" endtime="20200925 22:27:32.936"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:32.940" endtime="20200925 22:27:32.973"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password}</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:32.973" level="INFO">Typing text 'Shams_143' into text field 'xpath = //*[@id="password"]/div[1]/div/div[1]/input'.</msg>
+<status status="PASS" starttime="20200925 22:27:32.973" endtime="20200925 22:27:33.049"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${password_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:33.050" level="INFO">Clicking element 'passwordNext'.</msg>
+<status status="PASS" starttime="20200925 22:27:33.049" endtime="20200925 22:27:35.466"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${hangouts_section}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:35.470" endtime="20200925 22:27:37.189"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${compose}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:37.189" endtime="20200925 22:27:37.354"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:31.961" endtime="20200925 22:27:37.354"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:30.301" endtime="20200925 22:27:37.355"></status>
+</kw>
+<kw name="Compose Email New and Send" library="gmail_resource">
+<arguments>
+<arg>${subject_text}</arg>
+</arguments>
+<kw name="Compose Click" library="Email Operations">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${compose}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:37.357" level="INFO">Clicking element 'xpath = //*[contains(text(), "Compose")]'.</msg>
+<status status="PASS" starttime="20200925 22:27:37.357" endtime="20200925 22:27:37.966"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:37.356" endtime="20200925 22:27:37.966"></status>
+</kw>
+<kw name="Compose Email Body" library="Email Operations">
+<arguments>
+<arg>${arg}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${to_field}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:37.966" endtime="20200925 22:27:41.073"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${to_field}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:41.073" endtime="20200925 22:27:41.365"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${to_field}</arg>
+<arg>${recipient}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:41.369" level="INFO">Typing text 'rishithramanand@gmail.com' into text field 'name:to'.</msg>
+<status status="PASS" starttime="20200925 22:27:41.365" endtime="20200925 22:27:41.709"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${subject_field}</arg>
+<arg>${sub}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:41.709" level="INFO">Typing text 'Subject [43366799]' into text field 'name:subjectbox'.</msg>
+<status status="PASS" starttime="20200925 22:27:41.709" endtime="20200925 22:27:41.973"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${mail_body}</arg>
+<arg>${mail_body_text}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:41.975" level="INFO">Typing text 'Hello firefox' into text field 'xpath = //div[@aria-label='Message Body']'.</msg>
+<status status="PASS" starttime="20200925 22:27:41.974" endtime="20200925 22:27:42.379"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:37.966" endtime="20200925 22:27:42.379"></status>
+</kw>
+<kw name="Send Mail" library="Email Operations">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${send_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:42.380" endtime="20200925 22:27:42.869"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${send_button}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:42.870" level="INFO">Clicking element 'xpath = //div[@aria-label='Send ‪(Ctrl-Enter)‬']'.</msg>
+<status status="PASS" starttime="20200925 22:27:42.870" endtime="20200925 22:27:43.776"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${send_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:43.776" endtime="20200925 22:27:43.822"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Success!!</arg>
+</arguments>
+<msg timestamp="20200925 22:27:43.822" level="INFO">Success!!</msg>
+<status status="PASS" starttime="20200925 22:27:43.822" endtime="20200925 22:27:43.822"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:42.380" endtime="20200925 22:27:43.822"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:37.355" endtime="20200925 22:27:43.822"></status>
+</kw>
+<kw name="Log Out From Account" library="gmail_resource">
+<kw name="Sign Out Account" library="Email Operations">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${account_image}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:43.826" endtime="20200925 22:27:43.893"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${account_image}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:43.896" level="INFO">Clicking element 'xpath = //*[@id="gb"]/div[2]/div[3]/div[1]/div[2]/div/a/img'.</msg>
+<status status="PASS" starttime="20200925 22:27:43.893" endtime="20200925 22:27:44.231"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200925 22:27:46.243" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200925 22:27:44.231" endtime="20200925 22:27:46.243"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${sign_out_link}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:46.243" endtime="20200925 22:27:46.268"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${sign_out_link}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:46.268" level="INFO">Clicking element 'xpath = //a[contains(text(), "Sign out")]'.</msg>
+<status status="PASS" starttime="20200925 22:27:46.268" endtime="20200925 22:27:46.715"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:43.822" endtime="20200925 22:27:46.715"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:43.822" endtime="20200925 22:27:46.715"></status>
+</kw>
+<kw name="End Web Test" library="Common_gmail">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200925 22:27:46.715" endtime="20200925 22:27:48.110"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:46.715" endtime="20200925 22:27:48.110"></status>
+</kw>
+<kw name="Begin Web Test" library="Common_gmail">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:48.110" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200925 22:27:48.114" level="INFO">Firefox driver log is always forced to to: C:\development\gmail\results\geckodriver-10.log</msg>
+<status status="PASS" starttime="20200925 22:27:48.110" endtime="20200925 22:27:55.048"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200925 22:27:55.049" endtime="20200925 22:27:55.316"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:48.110" endtime="20200925 22:27:55.316"></status>
+</kw>
+<kw name="Login" library="gmail_resource">
+<arguments>
+<arg>${username}</arg>
+<arg>${password_input}</arg>
+</arguments>
+<kw name="Load" library="LoginPage">
+<doc>The URL is fetched from the test file, method is to navigate to the url specified</doc>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:55.316" level="INFO">Opening url 'https://mail.google.com/'</msg>
+<status status="PASS" starttime="20200925 22:27:55.316" endtime="20200925 22:27:56.842"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:56.842" endtime="20200925 22:27:56.917"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:55.316" endtime="20200925 22:27:56.917"></status>
+</kw>
+<kw name="Login_Process" library="LoginPage">
+<doc>This method is for the login process</doc>
+<arguments>
+<arg>${arg1}</arg>
+<arg>${arg2}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_login}</arg>
+<arg>${user}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:56.922" level="INFO">Typing text 'rishithramanand@gmail.com' into text field 'identifierId'.</msg>
+<status status="PASS" starttime="20200925 22:27:56.922" endtime="20200925 22:27:57.166"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${email_id_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:57.167" level="INFO">Clicking element 'identifierNext'.</msg>
+<status status="PASS" starttime="20200925 22:27:57.167" endtime="20200925 22:27:57.437"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:57.437" endtime="20200925 22:27:57.937"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:57.941" endtime="20200925 22:27:57.966"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password}</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:57.967" level="INFO">Typing text 'Shams_143' into text field 'xpath = //*[@id="password"]/div[1]/div/div[1]/input'.</msg>
+<status status="PASS" starttime="20200925 22:27:57.967" endtime="20200925 22:27:58.090"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${password_next}</arg>
+</arguments>
+<msg timestamp="20200925 22:27:58.092" level="INFO">Clicking element 'passwordNext'.</msg>
+<status status="PASS" starttime="20200925 22:27:58.091" endtime="20200925 22:27:59.744"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${hangouts_section}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:27:59.744" endtime="20200925 22:28:01.161"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${compose}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:28:01.163" endtime="20200925 22:28:01.334"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:56.917" endtime="20200925 22:28:01.338"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:55.316" endtime="20200925 22:28:01.338"></status>
+</kw>
+<kw name="Search Mail" library="gmail_resource">
+<arguments>
+<arg>${subject_text}</arg>
+</arguments>
+<kw name="Search Email" library="Email Operations">
+<arguments>
+<arg>${subject}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:28:01.338" endtime="20200925 22:28:01.510"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+<arg>${mail_subject}</arg>
+</arguments>
+<msg timestamp="20200925 22:28:01.510" level="INFO">Typing text 'Subject [43366799]' into text field 'xpath = //input[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:28:01.510" endtime="20200925 22:28:01.696"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:28:01.698" endtime="20200925 22:28:01.829"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<msg timestamp="20200925 22:28:01.829" level="INFO">Clicking button 'xpath = //button[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:28:01.829" endtime="20200925 22:28:03.037"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:28:01.338" endtime="20200925 22:28:03.037"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:28:01.338" endtime="20200925 22:28:03.037"></status>
+</kw>
+<kw name="Click On Searched Email" library="gmail_resource">
+<arguments>
+<arg>${mail_body_text}</arg>
+</arguments>
+<kw name="Searched Email Click" library="Email Operations">
+<arguments>
+<arg>${body}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_mail_result}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:28:03.037" endtime="20200925 22:28:05.102"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${search_mail_result}</arg>
+</arguments>
+<msg timestamp="20200925 22:28:05.102" level="INFO">Clicking element 'xpath = //div[@role="main"]/div/div[2]/div/table'.</msg>
+<status status="PASS" starttime="20200925 22:28:05.102" endtime="20200925 22:28:05.986"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200925 22:28:07.992" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200925 22:28:05.986" endtime="20200925 22:28:07.993"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${mail_body_searched}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200925 22:28:08.264" level="INFO">${response} = Rishith Ramanand &lt;rishithramanand@gmail.com&gt;
+22:27 (0 minutes ago)
+to me
+Hello firefox
+
+Reply
+Forward</msg>
+<status status="PASS" starttime="20200925 22:28:07.993" endtime="20200925 22:28:08.264"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20200925 22:28:08.264" level="INFO">Rishith Ramanand &lt;rishithramanand@gmail.com&gt;
+22:27 (0 minutes ago)
+to me
+Hello firefox
+
+Reply
+Forward</msg>
+<status status="PASS" starttime="20200925 22:28:08.264" endtime="20200925 22:28:08.264"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>${mail_body_searched}</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200925 22:28:08.464" level="INFO">Element 'xpath = //div[@role="listitem"]' contains text 'Hello firefox'.</msg>
+<status status="PASS" starttime="20200925 22:28:08.268" endtime="20200925 22:28:08.464"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:28:03.037" endtime="20200925 22:28:08.464"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:28:03.037" endtime="20200925 22:28:08.464"></status>
+</kw>
+<kw name="Search Mail" library="gmail_resource">
+<arguments>
+<arg>Subject</arg>
+</arguments>
+<kw name="Search Email" library="Email Operations">
+<arguments>
+<arg>${subject}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:28:08.469" endtime="20200925 22:28:08.544"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${search_mail}</arg>
+<arg>${mail_subject}</arg>
+</arguments>
+<msg timestamp="20200925 22:28:08.548" level="INFO">Typing text 'Subject' into text field 'xpath = //input[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:28:08.544" endtime="20200925 22:28:08.648"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:28:08.649" endtime="20200925 22:28:08.723"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${search_button}</arg>
+</arguments>
+<msg timestamp="20200925 22:28:08.723" level="INFO">Clicking button 'xpath = //button[@aria-label='Search mail']'.</msg>
+<status status="PASS" starttime="20200925 22:28:08.723" endtime="20200925 22:28:09.116"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:28:08.464" endtime="20200925 22:28:09.116"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:28:08.464" endtime="20200925 22:28:09.119"></status>
+</kw>
+<kw name="Delete Mail" library="gmail_resource">
+<kw name="Select All and Delete" library="Email Operations">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20200925 22:28:11.134" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200925 22:28:09.119" endtime="20200925 22:28:11.134"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${select_all}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:28:11.135" endtime="20200925 22:28:11.163"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${select_all}</arg>
+</arguments>
+<msg timestamp="20200925 22:28:11.167" level="INFO">Clicking element 'xpath = /html/body/div[7]/div[3]/div/div[2]/div[1]/div[2]/div/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div/div[1]/div/div[1]/span'.</msg>
+<status status="PASS" starttime="20200925 22:28:11.167" endtime="20200925 22:28:11.452"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${delete_mails}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:28:11.452" endtime="20200925 22:28:11.498"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${delete_mails}</arg>
+</arguments>
+<msg timestamp="20200925 22:28:11.498" level="INFO">Clicking element 'xpath = //div[@aria-label='Delete']'.</msg>
+<status status="PASS" starttime="20200925 22:28:11.498" endtime="20200925 22:28:11.815"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${deleted_confirm_text}</arg>
+</arguments>
+<status status="PASS" starttime="20200925 22:28:11.815" endtime="20200925 22:28:12.087"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:28:09.119" endtime="20200925 22:28:12.087"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:28:09.119" endtime="20200925 22:28:12.087"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20200925 22:28:17.098" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20200925 22:28:12.087" endtime="20200925 22:28:17.098"></status>
+</kw>
+<kw name="End Web Test" library="Common_gmail">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200925 22:28:17.098" endtime="20200925 22:28:18.626"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:28:17.098" endtime="20200925 22:28:18.626"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:27:23.104" endtime="20200925 22:28:18.626"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:41.175" endtime="20200925 22:28:18.626"></status>
+</kw>
+<kw name="Close All Excel Documents" library="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" starttime="20200925 22:28:18.626" endtime="20200925 22:28:18.626"></status>
+</kw>
+<status status="PASS" starttime="20200925 22:25:41.164" endtime="20200925 22:28:18.626" critical="yes"></status>
+</test>
+<doc>Open the Browser
+Goto gmail.com
+Enter username/password
+Compose an email and send it to another user
+Logout and login into new user and validate the email recieved</doc>
+<status status="PASS" starttime="20200925 22:25:40.586" endtime="20200925 22:28:18.626"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Gmail">Gmail</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200925 22:25:41.175" level="WARN">Error in file 'C:\development\gmail\tests\gmail.robot' in FOR loop starting on line 27: For loop header ':For' is deprecated. Use 'FOR' instead.</msg>
+</errors>
+</robot>
